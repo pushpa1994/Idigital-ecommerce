@@ -5,6 +5,10 @@ import './db/config.js';
 import userRoutes  from './routes/userRoutes.js';
 import itemRoutes from './routes/itemRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
+import { fileURLToPath } from "url";
+import path from "path";
+
+
 
 
 dotenv.config();
@@ -19,13 +23,22 @@ app.use(cors({
   credentials: true
 }));
 
+// Required when using ES modules (type: "module" in package.json)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // ✅ Serve Angular dist folder
 app.use(express.static(path.join(__dirname, "../client/dist/client")));
 
 // ✅ Catch-all to serve Angular
-app.get("*", (req, res) => {
+// app.get("/:path(*)", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/dist/client/index.html"));
+// });
+
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/client/index.html"));
 });
+
 
 
 app.use("/api/users",userRoutes);
