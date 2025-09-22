@@ -9,7 +9,7 @@ import cartRoutes from './routes/cartRoutes.js';
 
 dotenv.config();
 const app = express();
-const PORT = 8082;
+const PORT = process.env.PORT || 8082;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
