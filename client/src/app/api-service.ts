@@ -12,7 +12,7 @@ export class ApiService {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGNjZmNlMzBhYTQwZTBjMzhkYjJmMTYiLCJlbWFpbCI6InRlc3QxMjNAZ21haWwuY29tIiwiaWF0IjoxNzU4MjY0NTk4LCJleHAiOjE3NTk5OTI1OTh9.u_-e6zcLB3tTomYYvLqIaTSGSlRFni1KeVrovliUVZo'
   
 });
-  private apiURL = 'http://localhost:8082/api';
+  private apiURL = 'https://idigital-ecommerce1.onrender.com/api';
 
   constructor(private http: HttpClient) {}
 
