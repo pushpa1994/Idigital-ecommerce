@@ -13,8 +13,12 @@ const PORT = process.env.PORT || 8082;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
-app.use(cors());
-//app.options('*', cors());
+app.use(cors({
+  origin: 'http://localhost:4200', // or '*' for testing
+  methods: ['GET','POST','PUT','DELETE','OPTIONS'],
+  credentials: true
+}));
+
 
 app.use("/api/users",userRoutes);
 app.use("/api/items",itemRoutes);
