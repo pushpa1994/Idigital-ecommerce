@@ -4,11 +4,10 @@ import mongoose from "mongoose";
 //     console.log("db connected");
 // })
 mongoose.connect(`mongodb+srv://pushpasanthi1994_db_user:Push123@cluster0.kekovtt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/idigital-ecommerce`,{
-useNewUrlParser: true,
-useUnifiedTopology: true
+
 }).then((res)=>{
     console.log("db connected");
-})
+}).catch(err => console.error('MongoDB connection error', err));
 
 
 
