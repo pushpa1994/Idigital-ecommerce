@@ -19,6 +19,14 @@ app.use(cors({
   credentials: true
 }));
 
+// ✅ Serve Angular dist folder
+app.use(express.static(path.join(__dirname, "../client/dist/client")));
+
+// ✅ Catch-all to serve Angular
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/client/index.html"));
+});
+
 
 app.use("/api/users",userRoutes);
 app.use("/api/items",itemRoutes);
